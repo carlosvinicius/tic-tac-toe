@@ -1,0 +1,64 @@
+#container {
+    height: 100%;
+    width: 450px;
+    margin: 0 auto;
+}
+
+#message-area {
+    margin: 30px auto;
+    width: 100%;
+    display:block;
+}
+
+#start-option, #restart-option {
+    margin: 30px auto;
+    width: 100%;
+}
+
+#board {
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+}
+
+.board-row {
+    width: 450px;
+    height: 150px;
+    display: block;
+}
+
+.cell {
+    width: 150px;
+    height: 100%;
+    float:left;
+    line-height: 150px;
+    text-align: center;
+    font-family: "Arial Narrow";
+    font-weight: bold;
+    font-size: 70px;
+    padding: 5px;
+}
+
+.active-cell {
+    cursor:pointer;
+}
+
+.winner-cell {
+    background-color: PaleGreen;
+    color: Teal;
+}
+
+.loser-cell {
+    background-color: Bisque;
+    color: Tomato;
+}
+
+.middle-row {
+    border-bottom: solid CornflowerBlue ;
+    border-top: solid CornflowerBlue ;
+}
+
+.middle-column {
+    border-left: solid CornflowerBlue ;
+    border-right: solid CornflowerBlue ;
+}

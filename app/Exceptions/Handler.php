@@ -3,9 +3,8 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Auth\Access\AuthorizationException;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Exceptions\InvalidBoardException;
+use App\Exceptions\InvalidPlayerException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
@@ -17,10 +16,9 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        AuthorizationException::class,
         HttpException::class,
-        ModelNotFoundException::class,
-        ValidationException::class,
+        InvalidBoardException::class,
+        InvalidPlayerException::class,
     ];
 
     /**
@@ -28,7 +26,7 @@ class Handler extends ExceptionHandler
      *
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
-     * @param  \Exception  $e
+     * @param  \Exception $e
      * @return void
      */
     public function report(Exception $e)
@@ -39,12 +37,27 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Exception $e
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $e)
+    public function render($request, Exception $exception)
     {
-        return parent::render($request, $e);
+        switch (get_class($exception)) {
+            case \App\Exceptions\InvalidBoardException::class:
+            case \App\Exceptions\InvalidPlayerException::class:
+                $responseMessage = $exception->getMessage();
+                $responseCode    = 400;
+                break;
+            case \Symfony\Component\HttpKernel\Exception\HttpException::class:
+                $responseMessage = $exception->validator->getMessageBag()->toArray();
+                $responseCode    = $exception->getStatusCode();
+                break;
+            default:
+                $responseMessage = $exception->getMessage();
+                $responseCode    = 400;
+        }
+
+        return response()->json($responseMessage, $responseCode);
     }
 }

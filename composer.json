@@ -1,7 +1,15 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "carlosvinicius/tic-tac-toe",
+    "description": "Tic Tac Toe Game",
+    "keywords": ["tic-tac-toe", "php", "lumen", "game"],
+    "authors": [
+        {
+            "name": "Carlos Vinicius Pereira da Silva",
+            "email": "carlos@cvps.com.br",
+            "homepage": "https://github.com/carlosvinicius/tic-tac-toe",
+            "role": "Full Stack Developer"
+        }
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -21,8 +29,7 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/",
-            "database/"
+            "tests/"
         ]
     },
     "scripts": {

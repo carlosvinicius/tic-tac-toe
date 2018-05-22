@@ -1,5 +1,10 @@
 /vendor
 /.idea
+/node_modules
+/.vscode
+/tests/report
 Homestead.json
 Homestead.yaml
 .env
+composer.lock
+package-lock.json

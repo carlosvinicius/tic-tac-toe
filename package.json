@@ -1,0 +1,30 @@
+{
+  "name": "carlosvinicius_tic-tac-toe",
+  "version": "1.0.0",
+  "description": "Tic-Tac-Toe Game",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosvinicius/tic-tac-toe.git"
+  },
+  "keywords": [
+    "tic-tac-toe"
+  ],
+  "author": "Carlos Vinicius Pereira da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosvinicius/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/carlosvinicius/tic-tac-toe#readme"
+}
